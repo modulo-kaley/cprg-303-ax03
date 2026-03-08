@@ -1,50 +1,53 @@
-# Welcome to your Expo app 👋
+# Assignment: Advanced Form Development and Validation with React Hook Form & Zod (Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Assignment Overview
+This assignment requires students to design and implement professional-quality forms in a mobile application using React Native with Expo, React Hook Form for form state management, and Zod for schema-based validation. Working in groups of three, students will create multiple real-world forms and demonstrate strong validation logic, user experience design, and collaborative development practices.
 
-## Get started
+## Project Instructions
+### 1. Project Setup
+- Create a new Expo project using the TypeScript template: npx create-expo-app@latest <project-name>
+- Replace <project-name> with a meaningful project name.
+- Organize your folder structure clearly and follow best practices.
+- Install required libraries:
+  - react-hook-form
+  - zod
+  - @hookform/resolvers (to connect Zod to React Hook Form)
 
-1. Install dependencies
+## 2. Employee Information Form
+- Create an Employee Information Form with at least FIVE (5) input fields.
+- Use React Hook Form to manage form state.
+- Use Zod to validate all fields (schema validation).
+- Include:
+  - format validation (example: email, phone, postal code, etc.)
+  - required fields
+  - min/max length validation
+- Display clear validation messages and prevent submission until valid.
+- Use appropriate validation mode (ex: validation on submit, or on change/blur for better UX).
 
-   ```bash
-   npm install
-   ```
+## 3. Authentication Forms
+Create two authentication-style forms:
 
-2. Start the app
+### A) Sign-In Form
+- Fields: email, password
+- Apply Zod validation rules (valid email format, required fields, password rules)
 
-   ```bash
-   npx expo start
-   ```
+### B) Sign-Up Form
+- Fields: full name, email, password, confirm password
+- Apply Zod validation rules including:
+- password minimum length
+- password strength rules (optional but encouraged)
+- confirm password must match password
+- Display appropriate error messages and disable submission when invalid.
 
-In the output, you'll find options to open the app in a
+## 4. Navigation & Screen Structure
+- Implement separate screens for each form.
+- Use Stack or Tab Navigation appropriately.
+- Navigation between forms must be smooth and intuitive.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 5. Styling & User Experience
+- Apply consistent and professional styling across all forms.
+- Include:
+  - input focus styling
+  - error styling (text + input border/background changes)
+  - button state feedback (disabled/enabled styling)
+- Add icons where appropriate to enhance usability.
