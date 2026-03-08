@@ -16,7 +16,8 @@ const signUpSchema = z.object({
   password: z.string()
     .min(8, 'Password must be at least 8 characters')
     .regex(/[A-Z]/, 'Must contain at least one uppercase letter')
-    .regex(/[0-9]/, 'Must contain at least one number'),
+    .regex(/[0-9]/, 'Must contain at least one number')
+    .regex(/[^a-zA-Z0-9]/, 'Must contain at least one special character'),
   confirmPassword: z.string(),
 }).refine((data) => data.password === data.confirmPassword, {
   message: 'Passwords do not match',
@@ -46,6 +47,7 @@ export default function SignUpScreen() {
             <TextInput
               style={[styles.input, errors.fullName && styles.inputError]}
               placeholder='Full Name'
+              placeholderTextColor='#000'
               onChangeText={onChange}
               value={value}
             />
@@ -64,6 +66,7 @@ export default function SignUpScreen() {
             <TextInput
               style={[styles.input, errors.email && styles.inputError]}
               placeholder="Email Address"
+              placeholderTextColor='#000'
               keyboardType='email-address'
               autoCapitalize='none'
               onChangeText={onChange}
@@ -85,6 +88,7 @@ export default function SignUpScreen() {
               style={[styles.input, errors.password && styles.inputError]}
               secureTextEntry
               placeholder="Password"
+              placeholderTextColor='#000'
               autoCapitalize='none'
               onChangeText={onChange}
               value={value}
@@ -105,6 +109,7 @@ export default function SignUpScreen() {
               style={[styles.input, errors.confirmPassword && styles.inputError]}
               secureTextEntry
               placeholder="Confirm Password"
+              placeholderTextColor='#000'
               autoCapitalize='none'
               onChangeText={onChange}
               value={value}
