@@ -40,6 +40,14 @@ export function useAuth() {
 
 // --- HOW TO USE AuthContext.tsx ---
 //
+//  WRITING TO CONTEXT (Sign Up Screen pattern):
+//
+//  import { useAuth } from '@/context/AuthContext';
+//
+//  const { setUser } = useAuth();
+//
+//  setUser({ fullName: data.fullName, email: data.email, password: data.password });
+//
 //  READING FROM CONTEXT (Employee Info Screen pattern):
 //
 //  import { useAuth } from '@/context/AuthContext';
