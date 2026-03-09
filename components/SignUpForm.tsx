@@ -25,16 +25,16 @@ const signUpSchema = z.object({
   path: ['confirmPassword'],
 });
 
-type SignUpFormData = z.infer<typeof signUpSchema>;
+export type SignUpFormData = z.infer<typeof signUpSchema>;
 
-export default function SignUpScreen() {
+interface SignUpFormProps {
+  onSubmit: (data: SignUpFormData) => void;
+}
+
+function SignUpForm( {onSubmit}: SignUpFormProps ) {
   const { control, handleSubmit, formState: { errors } } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
   });
-
-  const onSubmit = (data: SignUpFormData) => {
-    console.log('Form submitted:', data);
-  };
 
   return (
     <View style={styles.container}>
@@ -152,3 +152,5 @@ const styles = StyleSheet.create({
 //   button: { backgroundColor: '#6C63FF', padding: 16, borderRadius: 8, alignItems: 'center', marginTop: 8 },
 //   buttonText: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
 // });
+
+export default SignUpForm;
