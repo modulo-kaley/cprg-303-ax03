@@ -49,9 +49,7 @@ export function useAuth() {
 //  User will be null if no one has signed up yet, so always check first:
 //  if (!user) return null;
 //
-//  Then access data directly:
-//  console.log(user.fullName);
-//  console.log(user.email);
+//  Then render the data directly by entering user.fullName and user.email into the desired field
 //
 //  ----------------------------------------
 //
