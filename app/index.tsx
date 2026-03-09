@@ -8,5 +8,5 @@
 import { Redirect } from "expo-router";
 
 export default function Index(){
-    return <Redirect href="/(auth)/sign-up" />;
+    return <Redirect href="../(auth)/signin-screen/" />;
 }
