@@ -9,6 +9,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { colors, forms } from '@/constants/theme';
 
 const signUpSchema = z.object({
   fullName: z.string().min(2, 'Name must be at least 2 characters'),
@@ -47,7 +48,7 @@ export default function SignUpScreen() {
             <TextInput
               style={[styles.input, errors.fullName && styles.inputError]}
               placeholder='Full Name'
-              placeholderTextColor='#000'
+              placeholderTextColor={colors.inputPlaceholder}
               onChangeText={onChange}
               value={value}
             />
@@ -66,7 +67,7 @@ export default function SignUpScreen() {
             <TextInput
               style={[styles.input, errors.email && styles.inputError]}
               placeholder="Email Address"
-              placeholderTextColor='#000'
+              placeholderTextColor={colors.inputPlaceholder}
               keyboardType='email-address'
               autoCapitalize='none'
               onChangeText={onChange}
@@ -88,7 +89,7 @@ export default function SignUpScreen() {
               style={[styles.input, errors.password && styles.inputError]}
               secureTextEntry
               placeholder="Password"
-              placeholderTextColor='#000'
+              placeholderTextColor={colors.inputPlaceholder}
               autoCapitalize='none'
               onChangeText={onChange}
               value={value}
@@ -109,7 +110,7 @@ export default function SignUpScreen() {
               style={[styles.input, errors.confirmPassword && styles.inputError]}
               secureTextEntry
               placeholder="Confirm Password"
-              placeholderTextColor='#000'
+              placeholderTextColor={colors.inputPlaceholder}
               autoCapitalize='none'
               onChangeText={onChange}
               value={value}
@@ -132,11 +133,22 @@ export default function SignUpScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 24, justifyContent: 'center' },
-  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 24 },
-  input: { borderWidth: 1, borderColor: '#ccc', borderRadius: 8, padding: 12, marginBottom: 4 },
-  inputError: { borderColor: 'red' },
-  errorText: { color: 'red', fontSize: 12, marginBottom: 12 },
-  button: { backgroundColor: '#6C63FF', padding: 16, borderRadius: 8, alignItems: 'center', marginTop: 8 },
-  buttonText: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
+  container:  forms.container,
+  title:      forms.title,
+  input:      forms.input,
+  inputError: forms.inputError,
+  errorText:  forms.errorText,
+  button:     forms.submitButton,
+  buttonText: forms.submitButtonText,
+
 });
+
+// const styles = StyleSheet.create({
+//   container: { flex: 1, padding: 24, justifyContent: 'center' },
+//   title: { fontSize: 28, fontWeight: 'bold', marginBottom: 24 },
+//   input: { borderWidth: 1, borderColor: '#ccc', borderRadius: 8, padding: 12, marginBottom: 4 },
+//   inputError: { borderColor: 'red' },
+//   errorText: { color: 'red', fontSize: 12, marginBottom: 12 },
+//   button: { backgroundColor: '#6C63FF', padding: 16, borderRadius: 8, alignItems: 'center', marginTop: 8 },
+//   buttonText: { color: '#fff', fontWeight: 'bold', fontSize: 16 },
+// });
