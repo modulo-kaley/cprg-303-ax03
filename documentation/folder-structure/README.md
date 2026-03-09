@@ -3,11 +3,13 @@
 
 ```
 cprg-303-ax03/                  ← Project Root
+|
+├── README.md                   ← Assignment 3 Instructions
+|
 ├── app/
 |   |   
 |   ├── _layout.tsx             ← App Layout
 |   ├── index.tsx               ← Immediately Routes to Sign In Screen
-|   ├── README.md               ← Assignment 3 Instructions
 |   │
 |   └── (auth)/
 |       | 
