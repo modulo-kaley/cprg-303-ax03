@@ -37,3 +37,31 @@ export function useAuth() {
   }
   return context;
 }
+
+// --- HOW TO USE AuthContext.tsx ---
+//
+//  READING FROM CONTEXT (Employee Info Screen pattern):
+//
+//  import { useAuth } from '@/context/AuthContext';
+//
+//  const { user } = useAuth();
+//
+//  User will be null if no one has signed up yet, so always check first:
+//  if (!user) return null;
+//
+//  Then access data directly:
+//  console.log(user.fullName);
+//  console.log(user.email);
+//
+//  ----------------------------------------
+//
+//  VALIDATING CREDENTIALS (Sign In Screen pattern):
+//
+//  import { useAuth } from '@/context/AuthContext';
+//
+//  const { user } = useAuth();
+//
+//  // Compare submitted credentials against stored user:
+//  if (data.email !== user.email || data.password !== user.password) {
+//     // handle invalid credentials
+//   }
