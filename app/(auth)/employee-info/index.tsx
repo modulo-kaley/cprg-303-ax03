@@ -7,3 +7,21 @@
 
 // sign-in.tsx -> on valid submit -> router.push('/(auth)/employee')
 // sign-up.tsx -> on valid submit -> router.push('/(auth)/employee')
+
+import Employeeform from "@/components/employeeInfo"
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+
+
+
+
+export default function index() {
+  return (
+    <View>
+      <Employeeform/>
+    </View>
+  )
+}
+const styles = StyleSheet.create({
+
+})
