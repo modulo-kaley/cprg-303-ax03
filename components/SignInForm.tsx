@@ -110,7 +110,7 @@ function SignInForm({ onSubmit, onSignUpPress }: SignInFormProps) {
 
       {/* Sign Up Link */}
       <TouchableOpacity style={styles.signUpButton} onPress={onSignUpPress}>
-        <Text style={styles.signUpText}>Don&apos;t have an account?</Text>
+        <Text style={styles.signUpText}>{"Don't have an account?"}</Text>
         <Text style={styles.signUpLink}>Sign Up</Text>
       </TouchableOpacity>
     </View>
