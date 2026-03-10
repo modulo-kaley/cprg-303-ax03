@@ -44,7 +44,7 @@ const employeeSchema = z.object({
 
 type EmployeeFormData = z.infer<typeof employeeSchema>
 
-export default function index() {
+export default function EmployeeInfo() {
 const  {
     control,
     handleSubmit,
@@ -65,7 +65,7 @@ const onSubmit = (data: EmployeeFormData) => {
 
 }
   return (
-    <ScrollView style={styles.container}> 
+    <ScrollView contentContainerStyle={styles.container}> 
         <Text style={styles.title}>Employee Information Form</Text>
 
         <Controller
@@ -135,7 +135,7 @@ const onSubmit = (data: EmployeeFormData) => {
             <View>
                 <TextInput
                 style = {[styles.input, errors.postalCode && styles.inputError]}
-                placeholder="phone"
+                placeholder="postalCode"
                 value={value}
                 onChange={onChange}
                 keyboardType='phone-pad'

@@ -5,10 +5,17 @@
  * Created: 03.09.2026
  */
 
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 
 export default function AuthLayout() {
   return (
-    <Stack />
+    <Tabs screenOptions={{ headerShown: false}} >
+      <Tabs.Screen 
+      name="signin-screen" options={{
+        title: "Employee form data"
+        
+      }}
+      />
+    </Tabs>
   );
 }

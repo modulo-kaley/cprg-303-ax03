@@ -5,8 +5,8 @@
  * Created: 03.08.2026
  */
 
-import { Stack } from "expo-router";
 import { AuthProvider } from "@/context/AuthContext";
+import { Stack } from "expo-router";
 
 export default function RootLayout() {
   return (
