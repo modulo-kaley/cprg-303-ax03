@@ -4,20 +4,20 @@
  * Assignment 3: Advanced Form Development and Validation with React Hook Form & Zod
  * Created: 03.09.2026
  */
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
 
 
 
-export default index
 
-const styles = StyleSheet.create({})
+
+
+
 import SignUpForm from "@/components/SignUpForm";
 import { useAuth } from "@/context/AuthContext";
 
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
-import { colors, spacing, text, radius, forms } from '@/constants/theme';
+import { forms } from '@/constants/theme';
 import { router } from 'expo-router';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 export default function SignUpScreen() {
   const { setUser } = useAuth();
