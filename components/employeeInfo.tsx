@@ -9,10 +9,13 @@
 // sign-up.tsx -> on valid submit -> router.push('/(auth)/employee')
 
 import { forms } from '@/constants/theme'
+import { useAuth } from '@/context/AuthContext'
 import { zodResolver } from '@hookform/resolvers/zod'
-import React from 'react'
+import { router } from 'expo-router'
+import React, { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, } from 'react-native'
+
 import { z } from "zod"
 
 const employeeSchema = z.object({
@@ -45,10 +48,13 @@ const employeeSchema = z.object({
 type EmployeeFormData = z.infer<typeof employeeSchema>
 
 export default function EmployeeInfo() {
+
+    const { user } = useAuth();
 const  {
     control,
     handleSubmit,
     formState: {errors, isValid},
+    reset,
 }= useForm<EmployeeFormData>({
     resolver: zodResolver(employeeSchema),
     mode: 'onBlur',
@@ -61,7 +67,21 @@ const  {
     }
 });
 
+useEffect(()=>{
+if (user){
+    reset({
+        fullName: user.fullName,
+        email: user.email,
+        address: "",
+        postalCode: "",
+        phone: ""
+    })
+}
+},[])
+
 const onSubmit = (data: EmployeeFormData) => {
+  console.log(data)
+  router.push('/(auth)/employee-success')
 
 }
   return (
@@ -77,7 +97,7 @@ const onSubmit = (data: EmployeeFormData) => {
                 style = {[styles.input, errors.fullName && styles.inputError]}
                 placeholder="Full Name"
                 value={value}
-                onChange={onChange}
+                onChangeText={onChange}
                 onBlur={onBlur}
                 />
                 {errors.fullName && (
@@ -96,7 +116,7 @@ const onSubmit = (data: EmployeeFormData) => {
                 style = {[styles.input, errors.email && styles.inputError]}
                 placeholder="email"
                 value={value}
-                onChange={onChange}
+                onChangeText={onChange}
                 keyboardType='email-address'
                 autoCapitalize='none'
                 onBlur={onBlur}
@@ -117,7 +137,7 @@ const onSubmit = (data: EmployeeFormData) => {
                 style = {[styles.input, errors.phone && styles.inputError]}
                 placeholder="phone"
                 value={value}
-                onChange={onChange}
+                onChangeText={onChange}
                 keyboardType='phone-pad'
                 onBlur={onBlur}
                 />
@@ -137,8 +157,8 @@ const onSubmit = (data: EmployeeFormData) => {
                 style = {[styles.input, errors.postalCode && styles.inputError]}
                 placeholder="postalCode"
                 value={value}
-                onChange={onChange}
-                keyboardType='phone-pad'
+                onChangeText={onChange}
+                keyboardType='default'
                 onBlur={onBlur}
                 />
                 {errors.postalCode && (
@@ -156,7 +176,7 @@ const onSubmit = (data: EmployeeFormData) => {
                 style = {[styles.input, errors.address && styles.inputError]}
                 placeholder="address"
                 value={value}
-                onChange={onChange}
+                onChangeText={onChange}
                 onBlur={onBlur}
                 />
                 {errors.address && (
