@@ -10,16 +10,20 @@
 
 import Employeeform from "@/components/employeeInfo"
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+
 
 
 export default function index() {
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
       <Employeeform/>
-    </View>
+    </SafeAreaView>
   )
 }
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+  },
 })
